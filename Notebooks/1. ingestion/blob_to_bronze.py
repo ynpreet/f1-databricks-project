@@ -16,15 +16,15 @@ v_data_source = dbutils.widgets.get("p_data_source")
 
 # COMMAND ----------
 
-# %sql
-# DROP TABLE IF EXISTS teamb2.bronze.constructors;
-# DROP TABLE IF EXISTS teamb2.bronze.drivers;
-# DROP TABLE IF EXISTS teamb2.bronze.pit_stops;
-# DROP TABLE IF EXISTS teamb2.bronze.circuits;
-# DROP TABLE IF EXISTS teamb2.bronze.races;
-# DROP TABLE IF EXISTS teamb2.bronze.lap_times;
-# DROP TABLE IF EXISTS teamb2.bronze.qualifying;
-# DROP TABLE IF EXISTS teamb2.bronze.results;
+# MAGIC %sql
+# MAGIC DROP TABLE IF EXISTS teamb2.bronze.constructors;
+# MAGIC DROP TABLE IF EXISTS teamb2.bronze.drivers;
+# MAGIC DROP TABLE IF EXISTS teamb2.bronze.pit_stops;
+# MAGIC DROP TABLE IF EXISTS teamb2.bronze.circuits;
+# MAGIC DROP TABLE IF EXISTS teamb2.bronze.races;
+# MAGIC DROP TABLE IF EXISTS teamb2.bronze.lap_times;
+# MAGIC DROP TABLE IF EXISTS teamb2.bronze.qualifying;
+# MAGIC DROP TABLE IF EXISTS teamb2.bronze.results;
 
 # COMMAND ----------
 
@@ -40,7 +40,7 @@ create_bronze_table('teamb2','bronze','results')
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC USE SCHEMA bronze
+# MAGIC USE SCHEMA bronze;
 # MAGIC SELECT 'constructors' AS table_name, COUNT(*) AS count FROM constructors UNION ALL
 # MAGIC SELECT 'drivers', COUNT(*) FROM drivers UNION ALL
 # MAGIC SELECT 'pit_stops', COUNT(*) FROM pit_stops UNION ALL
@@ -53,8 +53,7 @@ create_bronze_table('teamb2','bronze','results')
 
 # COMMAND ----------
 
-# MAGIC %sql
-# MAGIC select * from logging.log_table;
+dbutils.notebook.exit("Success")
 
 # COMMAND ----------
 
